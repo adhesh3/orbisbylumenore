@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+  ::selection {
+    background: #1B2A4A;
+    color: white;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-card;
+  }
+  .stat-num {
+    @apply font-display tabular-nums tracking-tight;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .nav-item {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-navy-100/80 transition-colors;
+  }
+  .nav-item:hover {
+    @apply bg-white/5 text-white;
+  }
+  .nav-item.active {
+    @apply bg-white/10 text-white;
+  }
+  .hairline {
+    @apply border-t border-border;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, #eef0f5 0%, #f7f8fb 50%, #eef0f5 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-md;
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(15, 26, 46, 0.06) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+}
+
+/* Recharts tooltips */
+.recharts-default-tooltip {
+  border-radius: 10px !important;
+  border: 1px solid #E6EAF3 !important;
+  box-shadow: 0 8px 30px rgba(15, 26, 46, 0.10) !important;
+}
